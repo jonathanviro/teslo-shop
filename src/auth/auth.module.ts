@@ -14,11 +14,8 @@ import { PassportModule } from '@nestjs/passport';
   providers: [AuthService, JwtStrategy],
   imports: [
     ConfigModule,
-
     TypeOrmModule.forFeature([User]),
-
     PassportModule.register({ defaultStrategy: 'jwt'}),
-    
     JwtModule.registerAsync({
       imports: [ ConfigModule ],
       inject: [ ConfigService ],
